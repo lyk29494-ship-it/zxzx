@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>忠信镇中心小学 · 元旦汇演</title>
+    <style>
+        :root {
+            --deep-blue: #1a365d;
+            --teal: #2d7a7a;
+            --teal-light: #4a9c9c;
+            --warm-orange: #e8a87c;
+            --warm-yellow: #f5d76e;
+            --light-bg: #f8fafc;
+            --text-primary: #1a202c;
+            --text-secondary: #4a5568;
+            --text-muted: #718096;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+            line-height: 1.8;
+            color: var(--text-primary);
+            background-image: url('微信图片_20251231125543_72_3.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-attachment: fixed;
+            overflow-x: hidden;
+        }
+
+        /* 顶部导航栏样式 */
+        .top-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 60px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 80px;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 40px;
+            margin: 0;
+            padding: 0;
+            justify-content: center;
+            width: 100%;
+        }
+
+        .nav-item .nav-link {
+            color: white;
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: 400;
+            transition: all 0.25s ease;
+            padding: 10px 0;
+            position: relative;
+        }
+
+        .nav-item .nav-link:hover {
+            color: var(--warm-orange);
+        }
+
+        .nav-item .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--warm-orange);
+            transition: width 0.25s ease;
+        }
+
+        .nav-item .nav-link:hover::after {
+            width: 100%;
+        }
+
+        /* 返回按钮样式 */
+        .back-btn {
+            position: absolute;
+            left: 60px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: all 0.25s ease;
+        }
+
+        .back-btn:hover {
+            background: rgba(255, 255, 255, 0.25);
+            border-color: rgba(255, 255, 255, 0.3);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            color: var(--warm-orange);
+        }
+
+        /* 主要内容区域 */
+        .yuan-dan-section {
+            min-height: 100vh;
+            background: rgba(26, 54, 93, 0.8);
+            color: white;
+            padding-top: 120px;
+            padding-bottom: 60px;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 60px;
+        }
+
+        /* 标题样式 */
+        .section-title {
+            font-size: 3rem;
+            font-weight: 300;
+            color: white;
+            margin-bottom: 2rem;
+            text-align: center;
+            letter-spacing: 0.05em;
+        }
+
+        .section-subtitle {
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.85);
+            margin-bottom: 3rem;
+            text-align: center;
+            font-weight: 300;
+        }
+
+        /* 内容布局 */
+        .content-wrapper {
+            display: grid;
+            grid-template-columns: 3fr 1fr;
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        /* 视频盒子 */
+        .video-box {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 12px;
+            padding: 20px;
+            height: 600px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .video-container {
+            width: 100%;
+            height: 400px;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .video-container video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .video-placeholder {
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.6);
+            text-align: center;
+        }
+
+        .video-info {
+            flex: 1;
+        }
+
+        .video-title {
+            font-size: 1.3rem;
+            font-weight: 500;
+            margin-bottom: 10px;
+            color: white;
+        }
+
+        .video-description {
+            font-size: 0.95rem;
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.6;
+        }
+
+        /* 文字盒子 */
+        .text-box {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 12px;
+            padding: 20px;
+            height: 600px;
+            overflow-y: auto;
+        }
+
+        .info-section {
+            margin-bottom: 30px;
+        }
+
+        .info-title {
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: var(--warm-orange);
+            margin-bottom: 15px;
+            padding-bottom: 5px;
+            border-bottom: 1px solid rgba(232, 168, 124, 0.3);
+        }
+
+        .info-item {
+            margin-bottom: 12px;
+            font-size: 0.95rem;
+            color: rgba(255, 255, 255, 0.85);
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+
+        .info-label {
+            font-weight: 500;
+            min-width: 80px;
+            color: white;
+        }
+
+        .program-list {
+            list-style: none;
+        }
+
+        .program-item {
+            padding: 12px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 6px;
+            margin-bottom: 10px;
+            transition: all 0.25s ease;
+        }
+
+        .program-item:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateX(5px);
+        }
+
+        .program-name {
+            font-weight: 500;
+            margin-bottom: 4px;
+            color: white;
+        }
+
+        .program-performer {
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        /* 页脚样式 */
+        .footer {
+            background: rgba(26, 54, 93, 0.95);
+            color: white;
+            padding: 60px 0 30px;
+            margin-top: 80px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-section h4 {
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+            font-weight: 400;
+        }
+
+        .footer-section p {
+            font-size: 0.9rem;
+            opacity: 0.7;
+            line-height: 1.8;
+            margin-bottom: 10px;
+        }
+
+        .footer-section a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            font-size: 0.9rem;
+            display: block;
+            margin-bottom: 10px;
+            transition: all 0.25s ease;
+        }
+
+        .footer-section a:hover {
+            color: var(--warm-orange);
+            padding-left: 5px;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.85rem;
+            opacity: 0.6;
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 1024px) {
+            .content-wrapper {
+                grid-template-columns: 1fr;
+            }
+
+            .video-box, .text-box {
+                height: auto;
+                min-height: 400px;
+            }
+
+            .back-btn {
+                position: static;
+                transform: none;
+                margin-bottom: 20px;
+            }
+
+            .nav-container {
+                flex-direction: column;
+                height: auto;
+                padding: 20px 60px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 30px;
+            }
+
+            .nav-container {
+                padding: 20px 30px;
+            }
+
+            .nav-menu {
+                gap: 20px;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .section-subtitle {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 顶部导航栏 -->
+    <nav class="top-nav">
+        <div class="nav-container">
+            <a href="index (5).html" class="back-btn">← 返回</a>
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="index (5).html" class="nav-link">首页</a></li>
+                <li class="nav-item"><a href="index (5).html#dashboard" class="nav-link">校园动态</a></li>
+                <li class="nav-item"><a href="index (5).html#growth" class="nav-link">成长路径</a></li>
+                <li class="nav-item"><a href="index (5).html#people" class="nav-link">师生风采</a></li>
+                <li class="nav-item"><a href="index (5).html#timeline" class="nav-link">发展历程</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- 元旦汇演主要内容 -->
+    <section class="yuan-dan-section">
+        <div class="container">
+            <h1 class="section-title">元旦汇演</h1>
+            <p class="section-subtitle">艺彩纷呈启新程   五育融合育未来</p>
+
+            <div class="content-wrapper">
+                <!-- 左侧视频盒子 -->
+                <div class="video-box">
+                    <div class="video-container">
+                        <!-- 视频播放区域 -->
+                        <!-- 请将下面的 "yuan-dan-video.mp4" 替换为您的视频文件名 -->
+                        <video controls width="100%" height="100%">
+                            <source src="yuan-dan-video.mp4" type="video/mp4">
+                            您的浏览器不支持视频播放，请更换浏览器后重试。
+                        </video>
+                    </div>
+                    <div class="video-info">
+                        <h3 class="video-title">2026年忠信镇中心小学元旦文艺汇演</h3>
+                        <p class="video-description">
+                            本次元旦汇演以"艺彩纷呈启新程   五育融合育未来"为主题，在学校国旗台举行，全校2000余名学生共同参与。
+                            演出涵盖了舞蹈、歌唱、朗诵、小品等多种形式，展现了孩子们的才艺和精神风貌，
+                            为全校师生和家长带来了一场精彩的视觉盛宴。
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 右侧文字盒子 -->
+                <div class="text-box">
+                    <!-- 基本信息 -->
+                    <div class="info-section">
+                        <h3 class="info-title">基本信息</h3>
+                        <div class="info-item">
+                            <span class="info-label">时间：</span>
+                            <span>2025年12月30日 14:30</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">地点：</span>
+                            <span>学校国旗台</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">主题：</span>
+                            <span>艺彩纷呈启新程   五育融合育未来</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">主办方：</span>
+                            <span>忠信镇中心小学</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">学生人数：</span>
+                            <span>2000余人</span>
+                        </div>
+                    </div>
+
+                    <!-- 节目列表 -->
+                    <div class="info-section">
+                        <h3 class="info-title">节目列表</h3>
+                        <ul class="program-list">
+                            <li class="program-item">
+                                <div class="program-name">1. 开场舞《欢乐中国年》</div>
+                                <div class="program-performer">表演者：六年级舞蹈队</div>
+                            </li>
+                            <li class="program-item">
+                                <div class="program-name">2. 诗朗诵《少年中国说》</div>
+                                <div class="program-performer">表演者：五年级朗诵队</div>
+                            </li>
+                            <li class="program-item">
+                                <div class="program-name">3. 独唱《我和我的祖国》</div>
+                                <div class="program-performer">表演者：四年级 李小红</div>
+                            </li>
+                            <li class="program-item">
+                                <div class="program-name">4. 小品《校园趣事》</div>
+                                <div class="program-performer">表演者：三年级小品社</div>
+                            </li>
+                            <li class="program-item">
+                                <div class="program-name">5. 武术表演《中华武魂》</div>
+                                <div class="program-performer">表演者：二年级武术队</div>
+                            </li>
+                            <li class="program-item">
+                                <div class="program-name">6. 合唱《明天会更好》</div>
+                                <div class="program-performer">表演者：全校师生</div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- 参与人员 -->
+                    <div class="info-section">
+                        <h3 class="info-title">参与人员</h3>
+                        <div class="info-item">
+                            <span class="info-label">总导演：</span>
+                            <span>王老师</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">主持人：</span>
+                            <span>六年级 张三、李四</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">演员：</span>
+                            <span>全校200余名学生</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">工作人员：</span>
+                            <span>全体教师</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>忠信镇中心小学</h4>
+                    <p>让每一个孩子，被认真对待</p>
+                    <p>数字未来校园 · 始于1949</p>
+                </div>
+                <div class="footer-section">
+                    <h4>快速链接</h4>
+                    <a href="index (5).html#dashboard">校园动态</a>
+                    <a href="index (5).html#growth">成长路径</a>
+                    <a href="index (5).html#people">师生风采</a>
+                    <a href="index (5).html#timeline">发展历程</a>
+                </div>
+                <div class="footer-section">
+                    <h4>家校共育</h4>
+                    <a href="#">智慧通知</a>
+                    <a href="#">家长课堂</a>
+                    <a href="#">家校协作</a>
+                    <a href="#">AI校园向导</a>
+                </div>
+                <div class="footer-section">
+                    <h4>联系我们</h4>
+                    <p>📍 忠信镇教育路88号</p>
+                    <p>📞 0762-8888888</p>
+                    <p>✉️ contact@zhongxin.edu.cn</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2024 忠信镇中心小学 · 数字未来校园 | 用心做教育</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 导航栏交互逻辑
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const href = this.getAttribute('href');
+                if (href === '#') {
+                    window.scrollTo({
+                        top: 0,
+                        behavior: 'instant'
+                    });
+                } else {
+                    const target = document.querySelector(href);
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'instant',
+                            block: 'start'
+                        });
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
