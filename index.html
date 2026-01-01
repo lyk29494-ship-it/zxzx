@@ -31,8 +31,74 @@
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
             line-height: 1.8;
             color: var(--text-primary);
-            background: var(--light-bg);
+            background-image: url('微信图片_20251231125543_72_3.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-attachment: fixed;
             overflow-x: hidden;
+        }
+
+        /* 顶部导航栏样式 */
+        .top-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 60px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 80px;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 40px;
+            margin: 0;
+            padding: 0;
+            justify-content: center;
+            width: 100%;
+        }
+
+        .nav-item .nav-link {
+            color: white;
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: 400;
+            transition: all 0.25s ease;
+            padding: 10px 0;
+            position: relative;
+        }
+
+        .nav-item .nav-link:hover {
+            color: var(--warm-orange);
+        }
+
+        .nav-item .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--warm-orange);
+            transition: width 0.25s ease;
+        }
+
+        .nav-item .nav-link:hover::after {
+            width: 100%;
         }
 
         .section {
@@ -41,6 +107,9 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            background: rgba(26, 54, 93, 0.8);
+            color: white;
+            padding-top: 80px;
         }
 
         .container {
@@ -52,14 +121,14 @@
         .section-title {
             font-size: 2.5rem;
             font-weight: 300;
-            color: var(--deep-blue);
+            color: white;
             margin-bottom: 1rem;
             letter-spacing: 0.05em;
         }
 
         .section-subtitle {
             font-size: 1.1rem;
-            color: var(--text-muted);
+            color: rgba(255, 255, 255, 0.85);
             margin-bottom: 3rem;
             font-weight: 300;
         }
@@ -68,7 +137,6 @@
             display: inline-block;
             padding: 14px 36px;
             background: rgba(255, 255, 255, 0.15);
-            backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.2);
             color: white;
             text-decoration: none;
@@ -111,23 +179,14 @@
 
         .hero {
             height: 100vh;
-            background: linear-gradient(135deg, var(--deep-blue) 0%, var(--teal) 100%);
+            background: rgba(26, 54, 93, 0.8);
             position: relative;
             overflow: hidden;
+            color: white;
         }
 
         .hero-bg {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: url('微信图片_20251231125543_72_3.jpg');
-            background-size: cover;
-            background-repeat: no-repeat;
-            background-position: center;
-            opacity: 0.1;
-            z-index: 0;
+            display: none;
         }
 
         .hero-content {
@@ -167,7 +226,6 @@
 
         .hero .btn {
             background: rgba(255, 255, 255, 0.15);
-            backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.2);
             margin: 0 10px;
         }
@@ -235,7 +293,6 @@
         }
 
         .dashboard {
-            background: white;
             padding: 100px 0;
         }
 
@@ -247,36 +304,36 @@
         }
 
         .stat-card {
-            background: var(--light-bg);
+            background: rgba(255, 255, 255, 0.15);
             padding: 35px;
             border-radius: 12px;
             text-align: center;
             transition: all 0.25s ease;
-            border: 1px solid rgba(0, 0, 0, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.2);
         }
 
         .stat-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
-            border-color: var(--teal-light);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+            border-color: var(--warm-orange);
         }
 
         .stat-number {
             font-size: 3rem;
             font-weight: 200;
-            color: var(--deep-blue);
+            color: white;
             margin-bottom: 8px;
         }
 
         .stat-label {
             font-size: 0.95rem;
-            color: var(--text-muted);
+            color: rgba(255, 255, 255, 0.85);
             font-weight: 400;
         }
 
         .stat-trend {
             font-size: 0.85rem;
-            color: var(--teal);
+            color: var(--warm-orange);
             margin-top: 12px;
             display: flex;
             align-items: center;
@@ -293,7 +350,7 @@
 
         .activity-column h3 {
             font-size: 1.2rem;
-            color: var(--deep-blue);
+            color: white;
             margin-bottom: 25px;
             font-weight: 400;
         }
@@ -302,21 +359,21 @@
             display: flex;
             align-items: flex-start;
             padding: 20px;
-            background: var(--light-bg);
+            background: rgba(255, 255, 255, 0.15);
             border-radius: 8px;
             margin-bottom: 15px;
             transition: all 0.25s ease;
         }
 
         .activity-item:hover {
-            background: white;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.06);
+            background: rgba(255, 255, 255, 0.25);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
         }
 
         .activity-icon {
             width: 40px;
             height: 40px;
-            background: var(--teal);
+            background: var(--warm-orange);
             border-radius: 8px;
             display: flex;
             align-items: center;
@@ -329,25 +386,24 @@
 
         .activity-content h4 {
             font-size: 1rem;
-            color: var(--text-primary);
+            color: white;
             margin-bottom: 5px;
             font-weight: 500;
         }
 
         .activity-content p {
             font-size: 0.9rem;
-            color: var(--text-muted);
+            color: rgba(255, 255, 255, 0.85);
             margin-bottom: 8px;
         }
 
         .activity-time {
             font-size: 0.8rem;
-            color: var(--text-muted);
-            opacity: 0.7;
+            color: rgba(255, 255, 255, 0.7);
+            opacity: 0.9;
         }
 
         .growth {
-            background: linear-gradient(180deg, #f8fafc 0%, #e2e8f0 100%);
             padding: 100px 0;
         }
 
@@ -359,21 +415,22 @@
         }
 
         .path-card {
-            background: white;
+            background: rgba(255, 255, 255, 0.15);
             border-radius: 16px;
             overflow: hidden;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
             transition: all 0.25s ease;
+            border: 1px solid rgba(255, 255, 255, 0.2);
         }
 
         .path-card:hover {
             transform: translateY(-8px);
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.12);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
         }
 
         .path-header {
             padding: 30px;
-            background: var(--deep-blue);
+            background: rgba(45, 122, 122, 0.9);
             color: white;
         }
 
@@ -385,7 +442,7 @@
 
         .path-header p {
             font-size: 0.9rem;
-            opacity: 0.85;
+            opacity: 0.9;
         }
 
         .path-body {
@@ -410,8 +467,7 @@
             top: 35px;
             bottom: -25px;
             width: 2px;
-            background: var(--teal-light);
-            opacity: 0.3;
+            background: rgba(255, 255, 255, 0.3);
         }
 
         .path-stage:last-child::before {
@@ -421,7 +477,7 @@
         .stage-dot {
             width: 32px;
             height: 32px;
-            background: var(--teal);
+            background: var(--warm-orange);
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -436,19 +492,18 @@
 
         .stage-content h4 {
             font-size: 1rem;
-            color: var(--text-primary);
+            color: white;
             margin-bottom: 8px;
             font-weight: 500;
         }
 
         .stage-content p {
             font-size: 0.9rem;
-            color: var(--text-muted);
+            color: rgba(255, 255, 255, 0.85);
             line-height: 1.6;
         }
 
         .people {
-            background: white;
             padding: 100px 0;
         }
 
@@ -472,7 +527,7 @@
             width: 120px;
             height: 120px;
             border-radius: 50%;
-            background: linear-gradient(135deg, var(--deep-blue), var(--teal));
+            background: linear-gradient(135deg, var(--warm-orange), var(--teal));
             margin: 0 auto 25px;
             display: flex;
             align-items: center;
@@ -483,21 +538,21 @@
 
         .person-name {
             font-size: 1.3rem;
-            color: var(--text-primary);
+            color: white;
             margin-bottom: 8px;
             font-weight: 500;
         }
 
         .person-role {
             font-size: 0.95rem;
-            color: var(--teal);
+            color: var(--warm-orange);
             margin-bottom: 15px;
             font-weight: 500;
         }
 
         .person-quote {
             font-size: 0.95rem;
-            color: var(--text-muted);
+            color: rgba(255, 255, 255, 0.85);
             line-height: 1.7;
             font-style: italic;
             padding: 0 20px;
@@ -515,50 +570,52 @@
         }
 
         .student-card {
-            background: var(--light-bg);
+            background: rgba(255, 255, 255, 0.15);
             border-radius: 12px;
             padding: 25px;
             text-align: center;
             transition: all 0.25s ease;
+            border: 1px solid rgba(255, 255, 255, 0.2);
         }
 
         .student-card:hover {
-            background: white;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            background: rgba(255, 255, 255, 0.25);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
         }
 
         .student-icon {
             width: 60px;
             height: 60px;
-            background: var(--warm-orange);
+            background: var(--teal);
             border-radius: 50%;
             margin: 0 auto 15px;
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 1.5rem;
+            color: white;
         }
 
         .student-name {
             font-size: 1rem;
-            color: var(--text-primary);
+            color: white;
             margin-bottom: 5px;
             font-weight: 500;
         }
 
         .student-grade {
             font-size: 0.85rem;
-            color: var(--text-muted);
+            color: rgba(255, 255, 255, 0.85);
             margin-bottom: 12px;
         }
 
         .student-achievement {
             font-size: 0.85rem;
-            color: var(--teal);
+            color: var(--warm-orange);
         }
 
         .timeline {
-            background: linear-gradient(180deg, var(--deep-blue) 0%, var(--teal) 100%);
+            background: rgba(26, 54, 93, 0.9);
             padding: 100px 0;
             color: white;
         }
@@ -568,7 +625,7 @@
         }
 
         .timeline .section-subtitle {
-            color: rgba(255, 255, 255, 0.7);
+            color: rgba(255, 255, 255, 0.85);
         }
 
         .timeline-container {
@@ -613,11 +670,10 @@
 
         .timeline-content {
             width: 45%;
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.15);
             padding: 30px;
             border-radius: 12px;
-            border: 1px solid rgba(255, 255, 255, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.2);
         }
 
         .timeline-year {
@@ -643,9 +699,9 @@
             text-align: center;
             margin-top: 80px;
             padding: 60px;
-            background: rgba(255, 255, 255, 0.05);
+            background: rgba(255, 255, 255, 0.1);
             border-radius: 16px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
         }
 
         .future-vision h3 {
@@ -663,7 +719,7 @@
         }
 
         .footer {
-            background: var(--deep-blue);
+            background: rgba(26, 54, 93, 0.95);
             color: white;
             padding: 60px 0 30px;
         }
@@ -775,6 +831,19 @@
     </style>
 </head>
 <body>
+    <!-- 顶部导航栏 -->
+    <nav class="top-nav">
+        <div class="nav-container">
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="#" class="nav-link">首页</a></li>
+                <li class="nav-item"><a href="#dashboard" class="nav-link">校园动态</a></li>
+                <li class="nav-item"><a href="#growth" class="nav-link">成长路径</a></li>
+                <li class="nav-item"><a href="#people" class="nav-link">师生风采</a></li>
+                <li class="nav-item"><a href="#timeline" class="nav-link">发展历程</a></li>
+            </ul>
+        </div>
+    </nav>
+
     <section class="hero section">
         <div class="hero-bg"></div>
         <div class="hero-particles" id="particles"></div>
@@ -832,14 +901,16 @@
                             <span class="activity-time">今天 09:00</span>
                         </div>
                     </div>
-                    <div class="activity-item">
-                        <div class="activity-icon">🎉</div>
-                        <div class="activity-content">
-                            <h4>元旦汇演</h4>
-                            <p>全校师生共同庆祝新年，展现才艺</p>
-                            <span class="activity-time">昨天 14:30</span>
+                    <a href="yuan-dan.html" style="text-decoration: none; color: inherit;">
+                        <div class="activity-item">
+                            <div class="activity-icon">🎉</div>
+                            <div class="activity-content">
+                                <h4>元旦汇演</h4>
+                                <p>全校师生共同庆祝新年，展现才艺</p>
+                                <span class="activity-time">昨天 14:30</span>
+                            </div>
                         </div>
-                    </div>
+                    </a>
                     <div class="activity-item">
                         <div class="activity-icon">🎨</div>
                         <div class="activity-content">
@@ -991,7 +1062,7 @@
             <div class="people-grid fade-in">
                 <div class="person-card">
                     <div class="person-avatar">👨‍🏫</div>
-                    <div class="person-name">张明远</div>
+                    <div class="person-name">古勇涛</div>
                     <div class="person-role">校长 · 从教28年</div>
                     <p class="person-quote">"教育不是注满一桶水，而是点燃一把火。每个孩子都有独特的光芒，我们的工作是发现并守护它。"</p>
                 </div>
@@ -1188,12 +1259,20 @@
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
+                const href = this.getAttribute('href');
+                if (href === '#') {
+                    window.scrollTo({
+                        top: 0,
+                        behavior: 'instant'
                     });
+                } else {
+                    const target = document.querySelector(href);
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'instant',
+                            block: 'start'
+                        });
+                    }
                 }
             });
         });
